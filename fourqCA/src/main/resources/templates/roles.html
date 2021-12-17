@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Lista Users</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+	
+	<td><a th:href="@{/index}" class="btn btn-danger">Indice</a></td> 
+	<div>
+		<h1>Users</h1>
+	</div>
+	<div>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>User ID</th>
+					<th>E-mail</th>
+					<th> Name</th>
+					<th> Telephone</th>
+					<th> Role</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user: ${user}">
+					<td th:text="${user.idUser}">User ID</td>
+					<td th:text="${user.email}">E-mail</td>
+					<td th:text="${user.name}"> Name</td>
+					<td th:text="${user.telephone}"> telephone</td>
+					<td th:text="${user.role}"> Role</td>
+					<td><a th:href="@{/delete/{id} (id=${user.idUser})}" class="btn btn-danger">Eliminar</a></td> 
+					<td><a th:href="@{/edit/{idUser} (idUser=${user.idUser}) }" class="btn btn-danger">Actualizar</a></td> 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</body>
+</html>
